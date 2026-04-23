@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { 
-  LayoutDashboard, Users, BookOpen, BarChart, Settings, 
-  Users2, ClipboardCheck, LogOut, X, ShieldCheck, Trophy
+  LayoutDashboard, Users, BookOpen, BarChart, // Tambahkan Settings ketika mengaktifkan fitur pengaturan 
+  Users2, ClipboardCheck, LogOut, X, ShieldCheck, Trophy, Zap
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -25,10 +25,11 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const adminMenu = [
     { label: "Dashboard", icon: LayoutDashboard, path: "/" },
     { label: "Kelola Badge", icon: Trophy, path: "/admin/badges" },
+    { label: "Manajemen Misi", icon: Zap, path: "/admin/missions" },
     { label: "Manajemen User", icon: Users, path: "/admin/users" },
     { label: "Konten Modul", icon: BookOpen, path: "/admin/modules" },
     { label: "Laporan Statistik", icon: BarChart, path: "/admin/reports" },
-    { label: "Pengaturan", icon: Settings, path: "/admin/settings" },
+    // { label: "Pengaturan", icon: Settings, path: "/admin/settings" },
   ];
 
   const teacherMenu = [

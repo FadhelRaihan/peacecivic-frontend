@@ -15,6 +15,11 @@ import TeacherProjectReview from "@/pages/teacher/TeacherProjectReview";
 import TeacherTeamManagement from "@/pages/teacher/TeacherTeamManagement";
 import TeacherStudentManagement from "@/pages/teacher/TeacherStudentManagement";
 import ManageBadges from "@/pages/admin/ManageBadges";
+import ManageUsers from "@/pages/admin/ManageUsers";
+import ManageModules from "@/pages/admin/ManageModules";
+import ManageMissions from "@/pages/admin/ManageMissions";
+import ManageReports from "@/pages/admin/ManageReports";
+// import ManageSettings from "@/pages/admin/ManageSettings";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const token = localStorage.getItem("token");
@@ -100,6 +105,26 @@ export const router = createBrowserRouter([
         path: "/admin/badges",
         element: <ManageBadges />,
       },
+      {
+        path: "/admin/users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/admin/modules",
+        element: <ManageModules />,
+      },
+      {
+        path: "/admin/missions",
+        element: <ManageMissions />,
+      },
+      {
+        path: "/admin/reports",
+        element: <ManageReports />,
+      },
+      // {
+      //   path: "/admin/settings",
+      //   element: <ManageSettings />,
+      // },
     ],
   },
 ]);

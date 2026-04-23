@@ -53,6 +53,7 @@ interface DataTableProps<TData, TValue> {
     data: TData[]
     filterColumn?: string
     searchPlaceholder?: string
+    extraActions?: React.ReactNode
 }
 
 export function DataTable<TData, TValue>({
@@ -60,6 +61,7 @@ export function DataTable<TData, TValue>({
     data,
     filterColumn = "full_name",
     searchPlaceholder = "Cari data...",
+    extraActions
 }: DataTableProps<TData, TValue>) {
     const [rowSelection, setRowSelection] = React.useState({})
     const [columnVisibility, setColumnVisibility] =
@@ -94,7 +96,7 @@ export function DataTable<TData, TValue>({
             {/* Table Actions */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 {/* Search */}
-                <div className="relative w-full md:w-96 group">
+                <div className="relative w-full md:w-80 group">
                     <IconSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-[#800000] transition-colors" />
                     <Input
                         placeholder={searchPlaceholder}
@@ -102,16 +104,17 @@ export function DataTable<TData, TValue>({
                         onChange={(event) =>
                             table.getColumn(filterColumn)?.setFilterValue(event.target.value)
                         }
-                        className="pl-12 h-12 bg-white border-2 border-gray-100 focus:border-[#800000] rounded-xl shadow-sm transition-all font-medium"
+                        className="pl-12 h-12 bg-white border-2 text-xs border-gray-100 focus:border-[#800000] rounded-xl shadow-sm transition-all font-medium"
                     />
                 </div>
 
-                <div className="flex items-center gap-2 w-full md:w-auto">
+                <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
+                    {extraActions}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button
                                 variant="outline"
-                                className="h-12 w-full px-5 border-2 border-gray-100 rounded-xl font-bold text-gray-600 hover:text-[#800000] hover:border-[#800000] transition-all bg-white"
+                                className="h-12 w-full md:w-auto px-5 border-2 border-gray-100 rounded-xl font-bold text-gray-600 hover:text-[#800000] hover:border-[#800000] transition-all bg-white"
                             >
                                 <IconLayoutColumns className="w-4 h-4 mr-2" />
                                 Kolom
