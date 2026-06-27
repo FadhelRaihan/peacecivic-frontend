@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:5000'; // Sesuaikan dengan URL backend Anda
+const SOCKET_URL = 'https://peacecivic-backend.vercel.app'; // Sesuaikan dengan URL backend Anda
 
 interface TypingUser {
   userId: string;
