@@ -21,6 +21,8 @@ import ManageMissions from "@/pages/admin/ManageMissions";
 import ManageReports from "@/pages/admin/ManageReports";
 // import ManageSettings from "@/pages/admin/ManageSettings";
 
+import LandingPage from "@/pages/LandingPage";
+
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const token = localStorage.getItem("token");
   if (!token) return <Navigate to="/login" replace />;
@@ -29,11 +31,15 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 const GuestRoute = ({ children }: { children: React.ReactNode }) => {
   const token = localStorage.getItem("token");
-  if (token) return <Navigate to="/" replace />;
+  if (token) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 };
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <GuestRoute><LandingPage /></GuestRoute>,
+  },
   {
     path: "/login",
     element: <GuestRoute><Login /></GuestRoute>,
@@ -54,7 +60,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/",
+        path: "/dashboard",
         element: <DashboardSwitcher />,
       },
       {

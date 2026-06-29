@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Beranda", icon: Home, path: "/" },
+  { label: "Beranda", icon: Home, path: "/dashboard" },
   { label: "Leaderboard", icon: Trophy, path: "/leaderboard" },
   { label: "Forum", icon: MessageSquare, path: "/forum" },
   { label: "Profil", icon: User, path: "/profil" },

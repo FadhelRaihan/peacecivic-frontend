@@ -31,7 +31,7 @@ export default function Login() {
 
       localStorage.setItem("token", response.token);
       localStorage.setItem("user", JSON.stringify(response.user));
-      navigate("/");
+      navigate("/dashboard");
     } catch (err: any) {
       setError(err.response?.data?.message || "Login gagal. Silakan cek email dan password Anda.");
     } finally {
